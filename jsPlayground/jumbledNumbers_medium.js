@@ -1,4 +1,4 @@
-// jumbled numbers 
+// jumbled numbers takes in a jumbled string and returns integers corresponding to numerals found within the jumbled string
 const jumbleNumber = (str) => {
     let numerals = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
     let numberText = [];

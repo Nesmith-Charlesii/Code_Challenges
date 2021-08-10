@@ -1,16 +1,24 @@
-// mini-max sum
-const miniMaxSum = (arr) => {
-    let minimum = 0;
-    let maximum = 0;
-    for(let i = 0; i < arr.length - 1; i++) {
-        minimum += arr[i];
-        arr.shift();
-        console.log(arr);
-        // maximum += arr[i + 1];
+"use strict";
+
+const miniMaxSum = (arrayOfNumbers) => {
+    let minimum = null;
+    let maximum = null;
+    let arrayTotals = [];
+    for(let i = 0; i < arrayOfNumbers.length; i++) {
+        let removeItem = arrayOfNumbers.splice([i], 1);
+        removeItem.join("");
+        let itemToInt = parseInt(removeItem);
+        let total = 0;
+        for(let j = 0; j < arrayOfNumbers.length; j++) {
+            total += arrayOfNumbers[j];
+        }
+        arrayTotals.push(total);
+        arrayOfNumbers.splice([i], 0, itemToInt);
     }
-    // console.log(minimum);
-}
+    minimum = Math.min(...arrayTotals); 
+    maximum = Math.max(...arrayTotals);
+    console.log(minimum, maximum);
+};
 
-let testArray = [7, 69, 2, 221, 8974];
+console.log(miniMaxSum([7, 69, 2, 221, 8974]));
 
-miniMaxSum(testArray);
