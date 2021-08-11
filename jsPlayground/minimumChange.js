@@ -1,3 +1,4 @@
+// Find the optimal amount of cash back for a give amount of money. For example, 42 dollars would be most optimal if received in four $10 dollar bills and a $2
 const minimumChange = (cash) => {
     if(cash < 2) {
         return null;
@@ -25,10 +26,3 @@ const minimumChange = (cash) => {
 }
     
 console.log(minimumChange(42));
-
-// Find some of all values between n1 and n2 within a given array
-function calc(aray, n1, n2) {
-    for(let i = 0; i < array[n2]; i++) {
-
-    }
-}
