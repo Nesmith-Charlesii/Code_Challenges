@@ -1,28 +1,17 @@
 // Find the optimal amount of cash back for a give amount of money. For example, 42 dollars would be most optimal if received in four $10 dollar bills and a $2
+let change = {
+    10: 0,
+    5: 0,
+    1: 0
+}
 const minimumChange = (cash) => {
-    if(cash < 2) {
-        return null;
+    if(cash == 0) {
+        console.log(change);
     } else {
-        let count = 0;
-        let ten = 0;
-        let five = 0;
-        let two = 0;
-        for(let i = 1; i <= cash; i++) {
-            count++
-            if(count == 10) {
-                cash -= 10
-                ten += 1; 
-                count = 0;
-                i = 0;
-                console.log(cash);
-            } 
-        }
-        console.log(`Ten: ${ten}\nFive: ${five}\nTwo: ${two}`);
-        // return {
-        //     two: 0,
-        //     five: 0,
-        //     ten: 0
+        // Be careful the order of operations! Add change first and THEN call function
+        cash > 10 ? (change[10]++, minimumChange(cash - 10)) :
+        cash > 5 ? (change[5]++, minimumChange(cash - 5)) :
+        (change[1]++, minimumChange(cash - 1));
     }
 }
-    
-console.log(minimumChange(42));
+minimumChange(42); 

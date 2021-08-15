@@ -36,9 +36,8 @@ const timeConversion = (timeString) => {
                 return `12hr - ${timeSplit.join(":")}\nConvert\n24hr - ${value}:${timeSplit[1]}:${seconds < 10 ? "0" + secondsString : secondsString}`;
             }
         }
-    } else {
-        console.log("Enter a valid HH:MM:SS 12hr time format");
     }
+    return "Please enter a valid time format: (hh:mm:ssAM) or (hh:mm:ssPM";
 }
 
-console.log(timeConversion("06:40:03PM"));
+console.log(timeConversion("06:40:03AM"));
